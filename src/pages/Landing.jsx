@@ -1,12 +1,12 @@
-import logo from '../assets/images/logo.svg'
+import { Logo } from '../components'
 import main from '../assets/images/main.svg'
 import Wrapper from '../assets/wrappers/LandingPage'
 
 function Landing() {
-  return (
+	return (
 		<Wrapper>
 			<nav>
-				<img src={logo} alt='jobster logo' className='logo' />
+				<Logo />
 			</nav>
 			<div className='container page'>
 				{/* info */}
@@ -23,6 +23,6 @@ function Landing() {
 				<img src={main} alt='job hunt' className='img main-img' />
 			</div>
 		</Wrapper>
-  )
+	)
 }
 export default Landing
