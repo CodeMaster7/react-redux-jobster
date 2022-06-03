@@ -40,7 +40,16 @@ function Job({
 							to='/add-job'
 							className='btn edit-btn'
 							onClick={() => {
-								console.log('edit job')
+								dispatch(
+									setEditJob({
+										editJobId: _id,
+										position,
+										company,
+										jobLocation,
+										jobType,
+										status
+									})
+								)
 							}}>
 							Edit
 						</Link>
