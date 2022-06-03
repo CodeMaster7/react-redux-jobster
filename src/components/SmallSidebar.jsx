@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { FaTimes } from 'react-icons/fa'
 import { toggleSidebar } from '../features/user/userSlice'
 import Wrapper from '../assets/wrappers/SmallSidebar'
+import NavLinks from './NavLinks'
 import Logo from './Logo'
 
 function SmallSidebar() {
@@ -28,7 +29,7 @@ function SmallSidebar() {
 					<header>
 						<Logo />
 					</header>
-					<div className='nav-links'>nav links</div>
+					<NavLinks toggleSidebar={toggleSidebar} />
 				</div>
 			</div>
 		</Wrapper>
