@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 import { FaTimes } from 'react-icons/fa'
 import { toggleSidebar } from '../features/user/userSlice'
 import Wrapper from '../assets/wrappers/SmallSidebar'
@@ -29,7 +28,7 @@ function SmallSidebar() {
 					<header>
 						<Logo />
 					</header>
-					<NavLinks toggleSidebar={toggleSidebar} />
+					<NavLinks toggleSidebar={toggle} />
 				</div>
 			</div>
 		</Wrapper>
