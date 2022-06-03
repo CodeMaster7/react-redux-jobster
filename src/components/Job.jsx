@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from 'react-icons/fa'
 import moment from 'moment'
 import Wrapper from '../assets/wrappers/Job'
+import { deleteJob, setEditJob } from '../features/job/jobSlice'
 import JobInfo from './JobInfo'
 
 function Job({
@@ -47,7 +48,7 @@ function Job({
 							type='button'
 							className='btn delete-btn'
 							onClick={() => {
-								console.log('delete  job')
+								dispatch(deleteJob(_id))
 							}}>
 							Delete
 						</button>
