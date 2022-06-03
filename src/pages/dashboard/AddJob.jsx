@@ -41,7 +41,6 @@ function AddJob() {
 	}
 
 	useEffect(() => {
-		// eventually will check for isEditing
 		if (!isEditing) {
 			dispatch(
 				handleChange({ name: 'jobLocation', value: user.location })
