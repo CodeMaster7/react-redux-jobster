@@ -1,10 +1,16 @@
-import { FormRow, FormRowSelect } from '../../components'
-import Wrapper from '../../assets/wrappers/DashboardFormPage'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
+import {
+	handleChange,
+	clearValues,
+	createJob
+} from '../../features/job/jobSlice'
+import { FormRow, FormRowSelect } from '../../components'
+import Wrapper from '../../assets/wrappers/DashboardFormPage'
 
 function AddJob() {
-    const {
+	const {
 		isLoading,
 		position,
 		company,
@@ -16,20 +22,33 @@ function AddJob() {
 		isEditing,
 		editJobId
 	} = useSelector((store) => store.job)
+	const { user } = useSelector((store) => store.user)
 	const dispatch = useDispatch()
 
-    const handleSubmit = (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault()
 
 		if (!position || !company || !jobLocation) {
 			toast.error('Please Fill Out All Fields')
 			return
 		}
+		dispatch(createJob({ position, company, jobLocation, jobType, status }))
 	}
 	const handleJobInput = (e) => {
 		const name = e.target.name
 		const value = e.target.value
+		dispatch(handleChange({ name, value }))
 	}
+
+	useEffect(() => {
+		// eventually will check for isEditing
+		if (!isEditing) {
+			dispatch(
+				handleChange({ name: 'jobLocation', value: user.location })
+			)
+		}
+		// eslint-disable-next-line
+	}, [])
 
 	return (
 		<Wrapper>
@@ -81,7 +100,7 @@ function AddJob() {
 						<button
 							type='button'
 							className='btn btn-block clear-btn'
-							onClick={() => console.log('clear values')}>
+							onClick={() => dispatch(clearValues())}>
 							clear
 						</button>
 						<button
