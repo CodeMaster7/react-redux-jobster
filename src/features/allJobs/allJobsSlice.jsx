@@ -76,6 +76,9 @@ const allJobsSlice = createSlice({
 		},
 		clearFilters: (state) => {
 			return { ...state, ...initialFiltersState }
+		},
+		changePage: (state, { payload }) => {
+			state.page = payload
 		}
 	},
 	extraReducers: {
@@ -85,7 +88,7 @@ const allJobsSlice = createSlice({
 		[getAllJobs.fulfilled]: (state, { payload }) => {
 			state.isLoading = false
 			state.jobs = payload.jobs
-            state.numOfPages = payload.numOfPages
+			state.numOfPages = payload.numOfPages
 			state.totalJobs = payload.totalJobs
 		},
 		[getAllJobs.rejected]: (state, { payload }) => {
@@ -107,7 +110,7 @@ const allJobsSlice = createSlice({
 	}
 })
 
-export const { showLoading, hideLoading, handleChange, clearFilters } =
+export const { showLoading, hideLoading, handleChange, clearFilters, changePage } =
 	allJobsSlice.actions
 
 export default allJobsSlice.reducer
