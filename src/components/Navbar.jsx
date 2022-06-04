@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { FaAlignLeft, FaUserCircle, FaCaretDown } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleSidebar, logoutUser, clearStore } from '../features/user/userSlice'
+import { toggleSidebar, clearStore } from '../features/user/userSlice'
 import Wrapper from '../assets/wrappers/Navbar'
 import Logo from './Logo'
 
