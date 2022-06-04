@@ -27,10 +27,6 @@ export const updateUserThunk = async (url, user, thunkAPI) => {
 		const resp = await customFetch.patch(url, user, authHeader(thunkAPI))
 		return resp.data
 	} catch (error) {
-		if (error.response.status === 401) {
-			thunkAPI.dispatch(logoutUser())
-			return thunkAPI.rejectWithValue('Unauthorized! Logging Out...')
-		}
 		return checkForUnauthorizedResponse(error, thunkAPI)
 	}
 }
