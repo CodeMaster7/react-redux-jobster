@@ -5,7 +5,8 @@ const Wrapper = styled.section`
 	align-items: center;
 	.logo {
 		display: block;
-		margin: 0 auto;
+		/* margin: 0 auto; */
+        margin-left: 23%;
 		margin-bottom: 1.38rem;
 	}
 	.form {
